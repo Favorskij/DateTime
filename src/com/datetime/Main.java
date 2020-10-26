@@ -2,6 +2,8 @@ package com.datetime;
 
 import java.sql.Timestamp;
 import java.time.*;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 public class Main {
 
@@ -43,6 +45,12 @@ public class Main {
         Instant instant4 = Instant.now();
         Timestamp timestamp = Timestamp.from(instant4);
         System.out.println(timestamp);
+
+        // Для записи в базу данных MySQL необходимо использовать Timestamp.
+
+        Date date = Timestamp.from(Instant.now());
+
+        Date date1 = Timestamp.from(Instant.now().plus(3, ChronoUnit.DAYS));
 
     }
 }
